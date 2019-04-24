@@ -25,23 +25,26 @@
       var random = Math.floor((Math.random() * 101));
       console.log(random);
       // Fonction qui test la valeur entrée et la compare à la valeur random
-      $("#test").click(function() {
-        // On incrémente le compteur à chaque essai
-        cpt++;
-        // On fait deux si pour test la valeur
-        // Si c'est plus grand
-        if ($("#value").val() > random)
-        {
-          alert("Trop grand !");
-        // Si c'est plus petit
-        } else if ($("#value").val() < random)
-        {
-          alert("Trop petit !");
+      $('#test').click(function() {
+        // Test si la valeur est bien un nombre et qu'il n'est pas vide
+        if ((!isNaN($('#value').val())) && ($('#value').val() == null) ) {
+          // On incrémente le compteur à chaque essai
+          cpt++;
+          // On fait deux if pour tester la valeur
+          // Si c'est plus grand
+          if ($('#value').val() > random) {
+            alert('Trop grand !');
+          // Si c'est plus petit
+          } else if ($('#value').val() < random) {
+            alert('Trop petit !');
+          } else {
+            // Sinon c'est que c'est le bon nombre
+            alert('Gagnée en '+cpt+' essai(s) !');
+          }
         } else {
-          // Sinon c'est que c'est le bon nombre
-          alert("Gagné en "+cpt+" essai(s) !");
+          alert('Veuillez entrer un nombre correct !')
         }
-      })
+      });
     });
   </script>
 </body>
